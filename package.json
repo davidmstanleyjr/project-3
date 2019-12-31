@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/davidmstanleyjr/project-3#readme",
   "dependencies": {
+    "mysql": "^2.17.1",
     "papaparse": "^5.1.1"
   }
 }
