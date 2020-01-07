@@ -8,26 +8,33 @@ const db = mysql.createConnection({
 	database: "animecsv"
 });
 
-let query = "";
+// let query = "";
 
-db.connect(err => {
-	if (err) throw err;
-	console.log("You have successfully connected!");
+// db.connect(err => {
+// 	if (err) throw err;
+// 	console.log("You have successfully connected!");
 
-	query = "DROP TABLE IF EXISTS ANIME";
-	db.query(query, err => {
-		if (err) throw err;
-		console.log("Anime table has been dropped!");
-	});
+	// query = 
+	DROP DATABASE IF EXISTS animecsv;
 
-	query =
-		"CREATE TABLE ANIME (row_id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), " +
-		"anime_id INT, type VARCHAR(255), episodes INT, rating DECIMAL, members INT)";
+	USE animecsv;
+	// db.query(query, err => {
+	// 	if (err) throw err;
+	// 	console.log("Anime table has been dropped!");
+	// });
 
-	db.query(query, err => {
-		if (err) throw err;
-		console.log("Your Anime table has been created!");
-	});
+	// query =
+		CREATE TABLE anime
+		 row_id INT AUTO_INCREMENT PRIMARY KEY, 
+		 name VARCHAR(255), 
+		anime_id INT, type VARCHAR(255), 
+		episodes INT, 
+		rating DECIMAL, members INT;
+
+	// db.query(query, err => {
+	// 	if (err) throw err;
+	// 	console.log("Your Anime table has been created!");
+	// });
 
 	query =
 		"LOAD DATA LOCAL INFILE 'csv/animeTable.csv' INTO TABLE ANIME FIELDS TERMINATED BY ',' IGNORE 1 LINES " +
@@ -42,4 +49,4 @@ db.connect(err => {
 		if (err) throw err;
 		console.log("It's all good! The database connection is closing");
 	});
-});
+// });
