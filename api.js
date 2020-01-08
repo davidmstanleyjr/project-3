@@ -11,7 +11,7 @@ const db = mysql.createConnection({
 	port: 3306,
 	user: "root",
 	password: "3317",
-	database: "animecsv"
+	database: "animeCSV"
 });
 //i'm using cors so the browser doesn't block reqeusts made to outside sources. This would happen because of the express API I created.
 app.use(cors());
