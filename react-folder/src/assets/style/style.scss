@@ -1,0 +1,283 @@
+$primary-color: #ED2525;
+$secondary-color: #2253AD;
+$tertiary-color: #FFE228;
+$content-color: #3E3E3E;
+$background-color: #FFFFFF;
+$padding-default: 1rem;
+$nav-bg: #000000;
+%content-text {
+  color: $content-color;
+  font-family: 'Indie Flower', cursive;  
+  font-weight: bold;
+}
+%normal-text {
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+%emphasis-text {
+font-family: 'Indie Flower', cursive;  font-weight: bold;
+}
+%heading-text {
+  color: $primary-color;
+  font-size: 1.3rem;
+}
+body {
+  margin: 0;
+}
+p {
+  @extend %content-text;
+  @extend %normal-text;
+  @media (max-width: 940px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 799px) {
+    font-size: 0.8rem;
+  }
+}
+.heading {
+  @extend %heading-text;
+  @extend %emphasis-text;
+  text-align: center;
+}
+h2.heading {
+  color: black;
+  padding: $padding-default;
+  font-size: 2rem;
+  @media (max-width: 940px) {
+    font-size: 1.75rem;
+  }
+  @media (max-width: 799px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 529px) {
+    font-size: 1.25rem;
+  }
+}
+.subHeading {
+  @extend %normal-text;
+  text-align: center;
+  color: #000000;
+  @media (max-width: 940px) {
+    font-size: 1.1rem;
+  }
+  @media (max-width: 799px) {
+    font-size: 1rem;
+  }
+}    
+.mainContent {
+  padding: 0 0.5rem;
+  background-color: whitesmoke;
+  .navBar {
+    background-color: $nav-bg;
+    .navList {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      margin: 0;
+      padding-left: 0;
+      .logo {
+        padding: $padding-default;
+      }
+      justify-content: center;
+      align-items: center;
+      .navTitle {
+        @extend %emphasis-text;
+        font-size: 1.5rem;
+        color: $background-color;
+        flex: 1;
+        padding: 2rem 0rem;
+        list-style: none;
+        @media (max-width: 529px) {
+          font-size: 1rem;
+          padding: $padding-default 0;
+        }
+        @media (max-width: 374px) {
+          font-size: 0.8rem;
+          padding: $padding-default/2 0;
+        }
+      }
+      .navItem {
+        @extend %emphasis-text;
+        font-size: 1.3rem;
+        color: $background-color;
+        flex: 1;
+        list-style: none;
+        .medium-button {
+          border: 0;
+          color: inherit;
+          background-color: inherit;
+          font-size: inherit;
+          @extend %emphasis-text;
+          padding: 2rem;
+        }
+        .medium-button:hover {
+          background-color: $primary-color;
+        }
+        .button-selected {
+          border: 0;
+          color: inherit;
+          font-size: inherit;
+          @extend %emphasis-text;
+          padding: 2rem;
+          background-color: $secondary-color;
+        }
+        @media (max-width: 529px) {
+          font-size: 0.8rem;
+          padding: $padding-default/2;
+        }
+        @media (max-width: 374px) {
+          font-size: 0.8rem;
+          padding: $padding-default/2 0;
+        }
+      }
+    }
+  }
+  .searchBar {
+    flex: 1;
+    display: flex;
+    .inputBar {
+      width: 98%;
+      border: 0.1px #000000 solid;
+      font-size: 2rem;
+      @extend %content-text;
+    }
+    .searchButton {
+      background-color: $primary-color;
+      border: 0.1px #000000 solid;
+      border-left: 0px;
+      padding: 0.8rem;
+      .imageButton {
+        height: 40px;
+        width: 40px;
+      }
+    }
+    .searchButton:disabled {
+      background-color: grey;
+    }
+  }
+  .contentRow {
+    .animeBody, .mangaBody {
+      display: flex;
+      flex-direction: row;
+      border: #F4F1EB 1px solid;
+      margin-top: 1rem;
+      background-color: white;
+      figure {
+        display: flex;
+        margin: 0;
+        justify-items: center;
+        img {
+          width: 100%;
+        }
+      }
+      @media (max-width: 529px) {
+        flex-direction: column;
+      }
+      .animePoster, .mangaPoster {
+        flex: 1;
+        padding: $padding-default;
+        @media (max-width: 940px) {
+          padding: $padding-default/2;
+        }
+        @media (max-width: 799px) {
+          padding: $padding-default/4;
+        }
+      }
+      .animeContent, .mangaContent {
+        flex: 3;
+        padding: $padding-default;
+        @media (max-width: 940px) {
+          padding: $padding-default/2;
+        }
+        .heading {
+          margin: 0;
+        }
+        .animeData, .mangaData {
+          padding: $padding-default;
+          @media (max-width: 940px) {
+            padding: $padding-default/2;
+          }
+          @media (max-width: 799px) {
+          padding: $padding-default/4;
+        }
+          .animeSynopsis, .mangaSynopsis {
+            @extend %content-text;
+            @extend %normal-text;
+
+          }
+        }
+        .buttonContainer {
+          display: flex;
+          justify-content: space-evenly;
+          .learnMore {
+            margin-top: 1rem;
+            text-align: center;
+            padding: $padding-default/2 $padding-default;
+            background-color: $tertiary-color;
+            @extend %emphasis-text;
+            font-size: 1.25rem;
+            border-color: black;
+            @media(max-width: 940px) {
+              margin-top: $padding-default/2;
+              padding: $padding-default/3;
+              font-size: 1rem;
+            }
+          }
+          .malButton {
+            margin-top: 1rem;
+            text-align: center;
+            padding: $padding-default/2 $padding-default;
+            background-color: $secondary-color;
+            color: white;
+            @extend %emphasis-text;
+            font-size: 1.25rem;
+            border-color: black;
+            @media(max-width: 940px) {
+              margin-top: $padding-default/2;
+              padding: $padding-default/3;
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}      
+.dataTable {
+  flex: 1;
+  width: 100%;
+  padding: $padding-default;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-family: 'Indie Flower', cursive;  font-weight: bold;
+  tr:nth-child(odd) {
+    background-color: white;;
+  }
+  th {
+    background-color: #252422;
+    border: 1px solid $content-color;
+    padding: $padding-default;
+    @extend %emphasis-text;
+    color: white;
+    @media (max-width: 940px) {
+      padding: $padding-default/2;
+    }
+    @media (max-width: 799px) {
+      padding: $padding-default/4;
+      font-size: 0.8rem;
+    }
+  }
+  td {
+    width: auto;
+    border: 1px solid $content-color;
+    padding: $padding-default;
+    text-align: center;
+    @media (max-width: 940px) {
+      padding: $padding-default/2;
+    }
+    @media (max-width: 799px) {
+      padding: $padding-default/4;
+      font-size: 0.8rem;
+    }
+  }
+}
