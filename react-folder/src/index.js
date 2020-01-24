@@ -18,7 +18,7 @@ class App extends Component {
       anime: true,
       rows: [
         <h2 className="heading" key="1">
-          Enter an Anime/Manga into the Searchbar Above
+          Use the Searchbar above to find Anime/Manga
         </h2>
       ]
     };
