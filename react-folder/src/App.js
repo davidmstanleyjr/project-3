@@ -1,26 +1,86 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Register from "./authentication/register";
+import Anime from "./anime/anime";
+import Login from "./authentication/login";
+import firebase from "./firebase";
+import Navbar from "./navigation/navbar";
+import SavedAnime from "./dashboard/savedAnime";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {},
+      isLoggedIn: false
+    };
+  }
+
+  getUser = () => {
+    firebase.auth().onAuthStateChanged(authUser => {
+      if (authUser) {
+        this.setState({ user: authUser, isLoggedIn: true });
+      } else {
+        this.setState({ user: {}, isLoggedIn: false });
+      }
+    });
+  };
+
+  componentDidMount() {
+    this.getUser();
+  }
+
+  render() {
+    return (
+      <Router>
+        <Navbar user={this.state.user.uid} isLoggedIn={this.state.isLoggedIn} />
+        <div className="App container">
+          <Route
+            exact
+            path="/register"
+            component={() => (
+              <Register
+                user={this.state.user.uid}
+                isLoggedIn={this.state.isLoggedIn}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/login"
+            component={() => (
+              <Login
+                user={this.state.user.uid}
+                isLoggedIn={this.state.isLoggedIn}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/anime"
+            component={() => (
+              <Anime
+                user={this.state.user.uid}
+                isLoggedIn={this.state.isLoggedIn}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/savedanime"
+            component={() => (
+              <SavedAnime
+                user={this.state.user.uid}
+                isLoggedIn={this.state.isLoggedIn}
+              />
+            )}
+          />
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;

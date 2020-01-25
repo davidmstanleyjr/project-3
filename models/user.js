@@ -5,44 +5,24 @@ var Schema = mongoose.Schema;
 
 // Using the Schema constructor, create a new UserSchema object
 // This is similar to a Sequelize model
-var AnimeSchema = new Schema({
+var UserSchema = new Schema({
   // `title` is required and of type String
-  title: {
-    type: String,
-    required: true
-  },
-  episodes: {
-    type: [String],
-    required: true
-  },
-  score: {
-    type: String,
-    required: true
-  },
-  start_date: {
-    type: String,
-    required: true
-  },
-  end_date: {
-    type: String,
-    required: true
-  },
-  rated: {
-    type: String,
-    required: true
-  },
   firebaseUID: {
     type: String,
     required: true
   },
-  mal_id: {
+  firstName: {
+    type: String,
+    required: true
+  },
+  lastName: {
     type: String,
     required: true
   }
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var Anime = mongoose.model("Anime", AnimeSchema);
+var User = mongoose.model("User", UserSchema);
 
 // Export the Article model
-module.exports = Anime;
+module.exports = User;
