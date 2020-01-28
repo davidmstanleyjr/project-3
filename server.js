@@ -33,5 +33,7 @@ const userRoutes = require("./routes/api/user");
 app.use("/api/user", userRoutes);
 const animeRoutes = require("./routes/api/anime");
 app.use("/api/anime", animeRoutes);
+const mangaRoutes = require("./routes/api/manga");
+app.use("/api/manga", mangaRoutes);
 
 app.listen(PORT, () => console.log(`Server running on port ${ PORT }`));

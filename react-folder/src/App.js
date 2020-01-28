@@ -8,6 +8,7 @@ import Login from "./authentication/login";
 import firebase from "./firebase";
 import Navbar from "./navigation/navbar";
 import SavedAnime from "./dashboard/savedAnime";
+import SavedManga from "./dashboard/savedManga";
 
 class App extends Component {
   constructor(props) {
@@ -72,6 +73,16 @@ class App extends Component {
             path="/savedanime"
             component={() => (
               <SavedAnime
+                user={this.state.user.uid}
+                isLoggedIn={this.state.isLoggedIn}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/savedmanga"
+            component={() => (
+              <SavedManga
                 user={this.state.user.uid}
                 isLoggedIn={this.state.isLoggedIn}
               />

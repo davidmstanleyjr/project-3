@@ -110,7 +110,7 @@ h2.heading {
           @extend %emphasis-text;
           padding: 2rem;
         }
-        .medium-button:hover {
+        .medium-button:hover,  {
           background-color: $primary-color;
         }
         .button-selected {
