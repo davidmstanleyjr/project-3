@@ -80,6 +80,9 @@ class MangaRow extends React.Component {
             <button className="malButton" onClick={this.navigateMAL}>
               MyAnimeList
             </button>
+            <button className="malButton" onClick={e => this.saveManga(e)}>
+              Save Manga
+            </button>
           </section>
         </article>
       </section>

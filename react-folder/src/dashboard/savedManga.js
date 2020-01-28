@@ -28,7 +28,7 @@ class savedManga extends Component {
     return (
       <div>
         {this.state.manga &&
-          this.statem.manga.map((a, index) => (
+          this.state.manga.map((a, index) => (
             <div className="card" key={index}>
               <div className="card-body">
                 <h5 className="card-title">{a.title}</h5>
