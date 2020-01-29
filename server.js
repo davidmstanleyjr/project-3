@@ -9,7 +9,7 @@ dotenv.config();
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = process.env.PORT || 3001;
+var PORT = process.env.PORT || 5000;
 
 //MongoDB config
 const db = process.env.MONGODB_URI;

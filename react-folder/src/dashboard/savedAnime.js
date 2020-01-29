@@ -33,9 +33,10 @@ class savedAnime extends Component {
               <div className="card-body">
                 <h5 className="card-title">{a.title}</h5>
                 <p className="card-text">score: {a.score}</p>
-                <p>
-                  aired: {a.start_date} - {a.end_date}
-                </p>
+                {/* <p>
+                  Aired: {a.start_date} - {a.end_date}
+                </p> */}
+                <p>Episodes: {a.episodes}</p>
               </div>
             </div>
           ))}

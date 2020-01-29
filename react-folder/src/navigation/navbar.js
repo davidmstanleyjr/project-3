@@ -43,6 +43,12 @@ class navbar extends Component {
                   Home <span className="sr-only">(current)</span>
                 </Link>
               </li>
+              <Link className="nav-link" to="/savedanime">
+                Saved Anime <span className="sr-only">(current)</span>
+              </Link>
+              <Link className="nav-link" to="/savedmanga">
+                Saved Manga <span className="sr-only">(current)</span>
+              </Link>
               {!this.props.user && JSON.stringify(this.props.user === "{}") ? (
                 <li className="nav-item">
                   <Link className="nav-link" to="/register">

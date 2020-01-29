@@ -38,7 +38,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router backgroundImagePath="react-folder\src\assets\style\goku_background2.png">
+      <Router backgroundImagePath="react-folder\src\assets\style\goku.jpg">
         <Navbar user={this.state.user.uid} isLoggedIn={this.state.isLoggedIn} />
         <div className="App container">
           <Route
