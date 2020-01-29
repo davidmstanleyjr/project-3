@@ -7,26 +7,29 @@ app.post("/savemanga", (req, res) => {
     title: req.body.title,
     chapters: req.body.chapters,
     volumes: req.body.volumes,
-    score: req.bodys.score,
+    score: req.body.score,
     start_date: req.body.start_date,
     end_date: req.body.end_date,
     firebaseUID: req.body.firebaseUID,
     mal_id: req.body.mal_id
   });
+
   Manga.findOne({
     mal_id: req.body.mal_id
-  }).then(manga => {
-    if (manga) {
-      return res.status(400).json({
-        error: "Manga Already Saved"
-      });
-    } else {
-      newManga
-        .save()
-        .then(manga => res.json(manga))
-        .catch(err => console.log(err));
-    }
-  });
+  })
+    .then(manga => {
+      if (manga) {
+        return res.status(400).json({
+          error: "Manga Already Saved"
+        });
+      } else {
+        newManga
+          .save()
+          .then(manga => res.json(manga))
+          .catch(err => console.log(err));
+      }
+    })
+    .catch(error => res.json(error));
 });
 
 app.get("/mymanga/:firebaseUID", (req, res) => {
