@@ -118,9 +118,13 @@ class anime extends Component {
             var mangaRows = [];
 
             mangaResults.forEach(mangaResult => {
-              console.log(mangaResult.title);
+              console.log(mangaResult);
               const manga = (
-                <MangaRow manga={mangaResult} key={mangaResult.mal_id} />
+                <MangaRow
+                  manga={mangaResult}
+                  key={mangaResult.mal_id}
+                  firebaseUID={this.props.user}
+                />
               );
               mangaRows.push(manga);
             });

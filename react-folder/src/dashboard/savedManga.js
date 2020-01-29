@@ -19,7 +19,7 @@ class savedManga extends Component {
     Axios.get(`/api/manga/mymanga/${this.props.user}`)
       .then(res => {
         this.setState({
-          anime: res.data
+          manga: res.data
         });
       })
       .catch(error => console.log(error));
