@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "../assets/style/style.scss";
+import logo from "../assets/style/sushi_roll.png"
 import firebase from "../firebase";
 
 class navbar extends Component {
@@ -14,7 +16,12 @@ class navbar extends Component {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand navbar-color" href="#">
+            <img
+              className="logo"
+              src={logo}
+              width="100"
+            />
             SushiRoll
           </a>
           <button
@@ -32,7 +39,7 @@ class navbar extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
-                <Link className="nav-link" to="/anime">
+                <Link className="nav-link " to="/anime">
                   Home <span className="sr-only">(current)</span>
                 </Link>
               </li>
@@ -54,7 +61,7 @@ class navbar extends Component {
             {this.props.isLoggedIn ? (
               <form className="form-inline my-2 my-lg-0">
                 <button
-                  className="btn btn-outline-danger my-2 my-sm-0"
+                  className="btn btn-outline-danger navbar-logout my-2 my-sm-0"
                   type="submit"
                   onClick={e => this.logout(e)}
                 >
@@ -62,16 +69,16 @@ class navbar extends Component {
                 </button>
               </form>
             ) : (
-              <form className="form-inline my-2 my-lg-0">
-                <Link
-                  className="btn btn-outline-success my-2 my-sm-0"
-                  type="submit"
-                  to="/login"
-                >
-                  Login
+                <form className="form-inline my-2 my-lg-0">
+                  <Link
+                    className="btn btn-outline-success navbar-login my-2 my-sm-0"
+                    type="submit"
+                    to="/login"
+                  >
+                    Login
                 </Link>
-              </form>
-            )}
+                </form>
+              )}
           </div>
         </nav>
       </div>
