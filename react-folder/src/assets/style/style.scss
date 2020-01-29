@@ -64,6 +64,44 @@ h2.heading {
     font-size: 1rem;
   }
 }    
+
+.navbar-color.navbar-brand {
+  font-family: 'Indie Flower', cursive;  
+  font-weight: bold;
+  color: $primary-color;
+
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+.form-group{
+  font-family: 'Indie Flower', cursive;  
+  color: $primary-color;
+
+}
+
+.btn-primary {
+  font-family: 'Indie Flower', cursive;  
+  background-color: $primary-color;
+
+}
+
+.nav-link{
+  font-family: 'Indie Flower', cursive;  
+  color: $primary-color;
+}
+
+.navbar-login, .navbar-logout{
+  font-family: 'Indie Flower', cursive;  
+  color: $primary-color;
+
+}
+
+.background{
+  background-repeat:no-repeat;
+  background-size:cover;
+}
 .mainContent {
   padding: 0 0.5rem;
   background-color: whitesmoke;
@@ -95,7 +133,13 @@ h2.heading {
           font-size: 0.8rem;
           padding: $padding-default/2 0;
         }
+
+
       }
+    
+    
+
+      
       .navItem {
         @extend %emphasis-text;
         font-size: 1.3rem;
@@ -110,7 +154,7 @@ h2.heading {
           @extend %emphasis-text;
           padding: 2rem;
         }
-        .medium-button:hover,  {
+        .medium-button:hover  {
           background-color: $primary-color;
         }
         .button-selected {

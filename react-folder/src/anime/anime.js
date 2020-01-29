@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../assets/style/style.scss";
 import AnimeRow from "./AnimeRow.js";
 import MangaRow from "./MangaRow.js";
+import logo from "../assets/style/sushi_roll.png"
 import { withRouter } from "react-router-dom";
 
 //searchbar stuff
@@ -33,7 +34,8 @@ class anime extends Component {
     console.log(this.state.searchString);
   };
   _submitPressed = event => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter")
+    {
       this.performSearch();
     }
   };
@@ -69,11 +71,12 @@ class anime extends Component {
     const querystring = Object.keys(params)
       .map(key => key + "=" + encodeURIComponent(params[key]))
       .join("&");
-    switch (this.state.value) {
+    switch (this.state.value)
+    {
       case 0:
       case 1:
         return (
-          `https://api.jikan.moe/v3/search/${selectedOption}?` + querystring
+          `https://api.jikan.moe/v3/search/${ selectedOption }?` + querystring
         );
         break;
     }
@@ -82,7 +85,8 @@ class anime extends Component {
     this.setState({
       disabled: true
     });
-    switch (this.state.value) {
+    switch (this.state.value)
+    {
       case 0:
         fetch(query)
           .then(response => response.json())
@@ -138,7 +142,8 @@ class anime extends Component {
   };
 
   componentDidMount() {
-    if (!this.props.isLoggedIn) {
+    if (!this.props.isLoggedIn)
+    {
       this.props.history.push("/login");
     }
   }
@@ -153,8 +158,8 @@ class anime extends Component {
           <ul className="navList">
             <img
               className="logo"
-              src="https://files.slack.com/files-pri/TL5B79PS6-FSGHWP2BA/sushi_roll.png"
-              width="50"
+              src={logo}
+              width="100"
             />
             <li className="navTitle">SushiRoll</li>
             <li className="navItem">

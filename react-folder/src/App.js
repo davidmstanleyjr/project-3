@@ -21,21 +21,24 @@ class App extends Component {
 
   getUser = () => {
     firebase.auth().onAuthStateChanged(authUser => {
-      if (authUser) {
+      if (authUser)
+      {
         this.setState({ user: authUser, isLoggedIn: true });
-      } else {
+      } else
+      {
         this.setState({ user: {}, isLoggedIn: false });
       }
     });
   };
 
   componentDidMount() {
+    console.log(this)
     this.getUser();
   }
 
   render() {
     return (
-      <Router>
+      <Router backgroundImagePath="react-folder\src\assets\style\goku_background2.png">
         <Navbar user={this.state.user.uid} isLoggedIn={this.state.isLoggedIn} />
         <div className="App container">
           <Route
@@ -55,6 +58,8 @@ class App extends Component {
               <Login
                 user={this.state.user.uid}
                 isLoggedIn={this.state.isLoggedIn}
+
+
               />
             )}
           />

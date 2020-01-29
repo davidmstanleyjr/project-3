@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "../assets/style/style.scss";
 import firebase from "../firebase";
 import { withRouter } from "react-router-dom";
+import "../authentication/style.css"
 
 class login extends Component {
   constructor(props) {
@@ -13,8 +15,17 @@ class login extends Component {
   }
 
   componentDidMount() {
-    if (this.props.isLoggedIn) {
+    if (this.props.isLoggedIn)
+    {
       this.props.history.push("/anime");
+    }
+    if (this.props.history.location.pathname === "/login")
+    {
+      document.getElementsByTagName("html")[0].classList.add("login")
+    }
+    else
+    {
+      document.getElementsByTagName("html")[0].classList.remove("login")
     }
   }
   handleChange = e => {
@@ -34,7 +45,7 @@ class login extends Component {
 
   render() {
     return (
-      <div className="mt-3 col-6 offset-3">
+      <div id="login-background" className="mt-3 col-6 offset-3">
         <form noValidate onSubmit={e => this.loginUser(e)}>
           <div className="form-group">
             <label for="exampleInputEmail1">Email address</label>
@@ -62,6 +73,7 @@ class login extends Component {
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
+
         </form>
       </div>
     );
