@@ -25,7 +25,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory
-app.use(express.static("public"));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("react-folder/build"));
+}
 
 // Routes
 // =============================================================
@@ -36,4 +38,4 @@ app.use("/api/anime", animeRoutes);
 const mangaRoutes = require("./routes/api/manga");
 app.use("/api/manga", mangaRoutes);
 
-app.listen(PORT, () => console.log(`Server running on port ${ PORT }`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
