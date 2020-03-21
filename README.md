@@ -35,3 +35,17 @@ The user register's their name, email address and password so they can login and
 The deployed app can be found at (https://desolate-shelf-21688.herokuapp.com/)
 
 Thank you and I hope you enjoy our project.
+
+# Screenshots
+
+![Screenshot 1](react-folder/src/assets/style/snip1.PNG)
+![Screenshot 2](react-folder/src/assets/style/snip2.PNG)
+![Screenshot 3](react-folder/src/assets/style/snip3.PNG)
+![Screenshot 4](react-folder/src/assets/style/snip4.PNG)
+![Screenshot 5](react-folder/src/assets/style/snip5.PNG)
+
+
+
+
+
+
